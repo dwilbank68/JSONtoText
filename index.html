@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title><script src="https://rawgit.com/angular/bower-angular/master/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div ng-app="JSONConverter">
+    <div ng-controller="JSONController" class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <h2>Paste JSON here</h2>
+                <p></p>
+                <form>
+                    <textarea   ng-model="rawJSON"
+                                ng-change="processJSON(rawJSON)"
+                                placeholder="The list on the right will update as soon as any new JSON is pasted in.">
+                    </textarea>
+                </form>
+
+            </div>
+            <div class="col-xs-6">
+                <h2>{{sampleTime()}}</h2>
+
+                <ul class="list-group">
+                    <li ng-repeat="item in displayArray" class="list-group-item">
+                        <p>PI Tag - {{item.pi_tag}}</p>
+                        <p>Numeric Value - {{item.num_value}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
